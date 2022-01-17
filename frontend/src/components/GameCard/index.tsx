@@ -1,4 +1,5 @@
 import GameScore from "components/GameScore";
+import { Link } from "react-router-dom";
 
 function GameCard () {
 
@@ -16,7 +17,10 @@ function GameCard () {
             <div className="gmgames-card-bottom-container">
              <h3>{game.title}</h3>
                 <GameScore />
-        <div className="btn btn-primary dsmovie-btn">Avaliar</div>
+        <Link to={`/Form/${game.id}`}>
+        <div className="btn btn-primary gmgames-btn">Avaliar</div>
+        </Link>
+        
     </div>
 </div>);
 }
