@@ -1,0 +1,28 @@
+header {
+    background-color: var(--color-primary);
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.gmgames-nav-content {
+    display: flex;
+    justify-content: space-between;
+    color:  #fff;
+}
+
+.gmgames-nav-content h1 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.gmgames-contact-container {
+    display: flex;
+    align-items: center;
+}
+
+.gmgames-contact-link {
+    margin: 0 0 0 10px;
+    font-size: 12px;
+}
