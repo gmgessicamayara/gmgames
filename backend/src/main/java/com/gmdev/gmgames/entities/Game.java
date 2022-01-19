@@ -1,9 +1,13 @@
 package com.gmdev.gmgames.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +22,8 @@ public class Game {
 	private Integer count;
 	private String image;
 	
+	@OneToMany(mappedBy = "id.game")
+	private Set<Score> scores = new HashSet<>();
 	
 	public Game() {
 		
@@ -71,4 +77,9 @@ public class Game {
 	public void setImage(String image) {
 		this.image = image;
 	}
+
+	public Set<Score> getScores() {
+		return scores;
+	}
+	
 }
