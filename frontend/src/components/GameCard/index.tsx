@@ -1,15 +1,15 @@
 import GameScore from "components/GameScore";
 import { Link } from "react-router-dom";
+import { Game } from "types/game";
 
-function GameCard () {
 
-    const game = {
-        id: 1,
-        image: "https://images.tcdn.com.br/img/img_prod/804441/jogo_shadow_of_the_tomb_raider_a_definitive_edition_ps4_2099_1_d3e497993d8a3688141d1438ecd6431d.jpg",
-        title: "Tomb Raider",
-        count: 2,
-        score: 4.5
-    };
+type Props = {
+    game: Game;
+}
+
+function GameCard( {game} : Props ) {
+
+    
 
     return(
         <div>

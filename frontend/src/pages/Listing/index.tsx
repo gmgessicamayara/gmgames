@@ -8,44 +8,38 @@ import { BASE_URL } from "utils/requests";
 function Listing() {
     
     const [PageNumber, setPageNumber] = useState(0);
+ 
+    const [page, setPage] = useState<GamePage>({
+        content: [],
+        last: true,
+        totalPages: 0,
+        totalElements: 0,
+        size: 12,
+        number: 0,
+        first: true,
+        numberOfElements: 0,
+        empty: true
+    });
 
     useEffect(() => {
-        axios.get(`${BASE_URL}/games?size=12$page=1`)
+        axios.get(`${BASE_URL}/games?size=${PageNumber}&sort=title`)
         .then(response => {
             const data = response.data as GamePage;
-            console.log(data);
-            setPageNumber(data.number);
+            setPage(data);
         });
-    }, []);
+    }, [PageNumber]);
 
     return (
     <>
-    <p>{PageNumber}</p>
       <Pagination/>
       <div className="container">
         <div className="row">
-            <div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
-            <GameCard/>
-            </div>
-            <div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
-            <GameCard/>
-            </div>
-            <div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
-            <GameCard/>
-            </div>
-            <div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
-            <GameCard/>
-            </div>
-            <div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
-            <GameCard/>
-            </div>
-            <div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
-            <GameCard/>
-            </div>
-            <div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
-            <GameCard/>
-            </div>
-
+           
+           {page.content.map(game => 
+                <div key={game.id} className="col-sm-6 col-lg-4 col-xl-3 mb-3">
+                <GameCard game={game}/>
+                </div>          
+           )}          
         </div>
         </div>
     </>
