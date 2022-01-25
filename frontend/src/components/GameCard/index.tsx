@@ -16,7 +16,7 @@ function GameCard( {game} : Props ) {
             <img className="gmgames-movie-card-image" src={game.image} alt={game.title} />
             <div className="gmgames-card-bottom-container">
              <h3>{game.title}</h3>
-                <GameScore />
+                <GameScore count={game.count} score={game.score} />
         <Link to={`/Form/${game.id}`}>
         <div className="btn btn-primary gmgames-btn">Avaliar</div>
         </Link>
